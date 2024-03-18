@@ -8,14 +8,13 @@ And all that using GoLang wasm.
 
 ## Build the webassembly stuff
 ```
-pushd cmd/wasm
-GOOS=js GOARCH=wasm -o ../../assets/
-popd
+GOOS=js GOARCH=wasm go build -o assets/shell-playground.wasm ./cmd/wasm
 ```
 
 ## Run local dev server
 
->> Make sure to have build the webassembly target before!
+> Make sure to have build the webassembly target before!
 ```
-go run cmd/server/main.go
+cd cmd/server
+go run main.go
 ```
