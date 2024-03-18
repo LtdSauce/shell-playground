@@ -1,14 +1,23 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<script src="wasm_exec.js"></script>
-		<script>
-			const go = new Go();
-			WebAssembly.instantiateStreaming(fetch("hello.wasm"), go.importObject).then((result) => {
-				go.run(result.instance);
-			});
-		</script>
-	</head>
-	<body></body>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="wasm_exec.js"></script>
+        <script>
+            const go = new Go();
+            WebAssembly.instantiateStreaming(fetch("shell-playground.wasm"), go.importObject).then((result) => {
+                go.run(result.instance);
+            });
+        </script>
+    </head>
+    <body>
+         <textarea id="shellinput" name="shellinput" cols="80" rows="20"></textarea>
+         <input id="button" type="submit" name="button" value="format shell script" onclick="shScript(shellinput.value)"/>
+         <textarea id="shelloutput" name="shelloutput" cols="80" rows="20"></textarea>
+    </body>
+    <script>
+        var shScript = function(input) {
+            shelloutput.value = formatShell(input)
+        }
+     </script>
 </html>
