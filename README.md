@@ -6,15 +6,9 @@ And all that using GoLang wasm.
 
 # Common commands
 
-## Build the webassembly stuff
-```
-GOOS=js GOARCH=wasm go build -o assets/shell-playground.wasm ./cmd/wasm
-```
-
 ## Run local dev server
 
-> Make sure to have build the webassembly target before!
+The following launches a local server listening on port 8000 and serving the PWA shell-playground.
 ```
-cd cmd/server
-go run main.go
+make run
 ```
